@@ -16,6 +16,9 @@ const MessageSchema = new Schema({
   details: {
     type: String
   },
+  hassee: {
+    type: Boolean
+  }
 
 
 });

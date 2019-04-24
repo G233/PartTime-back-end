@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const JobSchema = new Schema({
-  owner: {
+  openId: {
     type: String,
     index: true,
   },
@@ -10,7 +10,7 @@ const JobSchema = new Schema({
     type: String
   },
   salary: {
-    type: Number
+    type: String
   },
   details: {
     type: String
