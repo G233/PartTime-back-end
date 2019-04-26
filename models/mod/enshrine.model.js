@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const EnshrineSchema = new Schema({
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
+  userId: {
+    type: String,
   },
-  job: {
+  jobId: {
     type: Schema.Types.ObjectId,
     ref: 'Job'
   }
