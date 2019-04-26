@@ -9,6 +9,8 @@ const JobSchema = new Schema({
   name: {
     type: String
   },
+  chosetime: String,
+  choselei: String,
   salary: {
     type: String
   },
@@ -24,6 +26,11 @@ const JobSchema = new Schema({
   creatdate: {
     type: Date,
     default: Date.now()
+  },
+  //是否招聘完成
+  done: {
+    type: Boolean,
+    default: false
   }
 
 });

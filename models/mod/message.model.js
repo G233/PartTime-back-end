@@ -6,7 +6,7 @@ const MessageSchema = new Schema({
     type: Date,
     default: Date.now()
   },
-
+  //收信人openId 0 为所有人
   addressee: {
     type: String
   },
@@ -17,7 +17,8 @@ const MessageSchema = new Schema({
     type: String
   },
   hassee: {
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 
 

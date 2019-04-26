@@ -12,7 +12,6 @@ class User {
   //登录
   static async login(ctx) {
     let { code } = ctx.request.body
-    console.log(ctx.request.body)
     let res = await axios.get('https://api.weixin.qq.com/sns/jscode2session', {
       params: {
         appid: 'wx810c94fefd2a180f',
@@ -24,8 +23,10 @@ class User {
     let data = {
       openId: res.data.openid,
     }
+    console.log(res.data.openid)
     //判断是否登陆过
-    const hasuser = await UserModel.findOne({ data })
+    const hasuser = await UserModel.findOne(data)
+    console.log(hasuser)
     if (hasuser) {
       console.log("其实还是老用户")
     }
@@ -47,10 +48,7 @@ class User {
   static async getresume(ctx) {
     let { openId } = ctx.request.body
     const res = await UserModel.findOne({ openId: openId })
-
     return ctx.success({ data: res })
-
-
   }
 
 
