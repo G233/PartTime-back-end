@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const MessageSchema = new Schema({
   date: {
     type: Date,
-    default: Date.now()
+    default: Date.now
   },
   //收信人openId 0 为所有人
   addressee: {
@@ -22,6 +22,16 @@ const MessageSchema = new Schema({
   }
 
 
+},
+{
+  toJSON: { virtuals: true },
+  versionKey: false,
+  timestamps: { createdAt: 'date', updatedAt: 'updateTime' }
+});
+MessageSchema.virtual('day').get(function () {
+  let x = this.date
+  let y = (x.getMonth() + 1) + '-' + x.getDate() + ' ' + x.getHours() + ':' + x.getMinutes()
+  return y;
 });
 
 module.exports = mongoose.model('Message', MessageSchema);

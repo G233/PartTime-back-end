@@ -12,7 +12,7 @@ const UserSchema = new Schema({
   phone: {
     type: Number,
   },
-  wechat: {
+  wx: {
     type: String,
   },
   sex: {
